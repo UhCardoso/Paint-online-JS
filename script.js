@@ -1,5 +1,5 @@
 const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
 const inputColor = document.querySelector('.input__color');
 const tools = document.querySelectorAll('.button__tool');
@@ -7,10 +7,11 @@ const sizeButtons = document.querySelectorAll('.button__size');
 const buttonClear = document.querySelector('.button__clear');
 
 let brushSize = 10;
-
 let isPainting = false;
-
 let activeTool = "rubber";
+let xInitial = 0;
+let yInitial = 0;
+let snapshot = '';
 
 inputColor.addEventListener("change", ({ target }) => {
     ctx.fillStyle = target.value;
@@ -26,9 +27,14 @@ canvas.addEventListener("mousedown", ({ clientX, clientY }) => {
     if (activeTool == "rubber") {
         erase(clientX, clientY);
     }
+
+    if (activeTool == 'form-box') {
+        xInitial = clientX;
+        yInitial = clientY;
+    }
 })
 
-canvas.addEventListener("mousemove", ({ clientX, clientY }) => {
+canvas.addEventListener("mousemove", ({ offsetX, offsetY, clientX, clientY }) => {
     if (isPainting) {
         if (activeTool == "brush") {
             draw(clientX, clientY);
@@ -36,6 +42,18 @@ canvas.addEventListener("mousemove", ({ clientX, clientY }) => {
 
         if (activeTool == "rubber") {
             erase(clientX, clientY);
+        }
+
+        if (activeTool == 'form-box') {
+            let width = offsetX - xInitial;
+            let height = offsetY - yInitial;
+
+            // Limpa o canvas antes de desenhar o novo retângulo
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.beginPath();
+            ctx.rect(xInitial, yInitial, width, height);
+            ctx.stroke();
         }
     }
 })
