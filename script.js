@@ -9,9 +9,6 @@ const buttonClear = document.querySelector('.button__clear');
 let brushSize = 10;
 let isPainting = false;
 let activeTool = "rubber";
-let xInitial = 0;
-let yInitial = 0;
-let snapshot = '';
 
 inputColor.addEventListener("change", ({ target }) => {
     ctx.fillStyle = target.value;
@@ -27,11 +24,6 @@ canvas.addEventListener("mousedown", ({ clientX, clientY }) => {
     if (activeTool == "rubber") {
         erase(clientX, clientY);
     }
-
-    if (activeTool == 'form-box') {
-        xInitial = clientX;
-        yInitial = clientY;
-    }
 })
 
 canvas.addEventListener("mousemove", ({ offsetX, offsetY, clientX, clientY }) => {
@@ -42,18 +34,6 @@ canvas.addEventListener("mousemove", ({ offsetX, offsetY, clientX, clientY }) =>
 
         if (activeTool == "rubber") {
             erase(clientX, clientY);
-        }
-
-        if (activeTool == 'form-box') {
-            let width = offsetX - xInitial;
-            let height = offsetY - yInitial;
-
-            // Limpa o canvas antes de desenhar o novo retângulo
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            ctx.beginPath();
-            ctx.rect(xInitial, yInitial, width, height);
-            ctx.stroke();
         }
     }
 })
@@ -107,51 +87,3 @@ sizeButtons.forEach((button) => {
 buttonClear.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 })
-
-/**
-let canvas = document.getElementById('yourCanvasId');
-let ctx = canvas.getContext('2d');
-let isPainting = false;
-let xInitial, yInitial;
-let rectangulos = []; // Lista para armazenar os retângulos desenhados
-
-canvas.addEventListener('mousedown', (e) => {
-    isPainting = true;
-    xInitial = e.offsetX;
-    yInitial = e.offsetY;
-});
-
-canvas.addEventListener('mouseup', () => {
-    if (isPainting && activeTool === 'form-box') {
-        // Armazena o retângulo atual ao soltar o botão do mouse
-        rectangulos.push({x: xInitial, y: yInitial, width: e.offsetX - xInitial, height: e.offsetY - yInitial});
-        isPainting = false;
-    }
-});
-
-canvas.addEventListener('mousemove', ({ offsetX, offsetY }) => {
-    if (isPainting && activeTool === 'form-box') {
-        let width = offsetX - xInitial;
-        let height = offsetY - yInitial;
-
-        // Redesenha todos os retângulos anteriores
-        redesenharRetangulos();
-
-        // Desenha o retângulo atual
-        ctx.beginPath();
-        ctx.rect(xInitial, yInitial, width, height);
-        ctx.stroke();
-    }
-});
-
-function redesenharRetangulos() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
-
-    // Redesenha cada retângulo armazenado
-    rectangulos.forEach(({x, y, width, height}) => {
-        ctx.beginPath();
-        ctx.rect(x, y, width, height);
-        ctx.stroke();
-    });
-}
- */
