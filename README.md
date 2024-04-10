@@ -10,7 +10,7 @@ Esse projeto possui as funcionalidades de:
 Desenhar com lápis;<br/>
 Usar borracha;<br/>
 Mudar cor do lápis;<br/>
-Mudar expessura do lápis/<br/>
-Apagar tudo o que foi feito
+Mudar expessura do lápis;<br/>
+Apagar tudo o que foi feito.
 
 Além da opção de exportar o desenho feito no formato de imagem ou PDF para compartilhar com seus amigos.
