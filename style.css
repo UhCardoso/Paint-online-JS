@@ -16,7 +16,7 @@ canvas {
 
 .container {
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,4 +98,26 @@ canvas {
 
 .active {
     background-color: #cecece;
+}
+
+#export-buttons {
+    margin: 0 auto;
+    margin-top: 10px;
+    gap: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+#export-buttons button {
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
