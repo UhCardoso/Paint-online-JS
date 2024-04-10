@@ -2,7 +2,8 @@
 
 Projeto desenvolvido com HTML, CSS e JavaScript puro para a criação de um paint online. Com ele é possível criar desenhos bem legais atraves do <canvas> presente no html.
 
-![image](https://github.com/UhCardoso/Paint-online-JS/assets/60702219/caa8dfdf-e6f7-4824-b01c-9c94862475d4)
+![image](https://github.com/UhCardoso/Paint-online-JS/assets/60702219/4131cd47-3c44-4cc2-ad00-7bf99846fe2a)
+
 
 Esse projeto possui as funcionalidades de:
 
