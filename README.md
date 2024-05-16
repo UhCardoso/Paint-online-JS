@@ -1,6 +1,6 @@
 # Paint online
 
-Projeto desenvolvido com HTML, CSS e JavaScript puro para a criação de um paint online. Com ele é possível criar desenhos bem legais atraves do <canvas> presente no html.
+Projeto desenvolvido com HTML, CSS e JavaScript puro para a criação de um paint online. Com ele é possível criar desenhos bem legais atraves do canvas presente no html.
 
 ![image](https://github.com/UhCardoso/Paint-online-JS/assets/60702219/4131cd47-3c44-4cc2-ad00-7bf99846fe2a)
 <br/><a href="https://werlen-dev.web.app/paint-online/" target="_blank">Clique aqui para visualizar no site</a>
